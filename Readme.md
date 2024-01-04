@@ -35,3 +35,12 @@ and this is how we will get native apps
 ### Styles
 
 In React native for styles we dont need to specify the px it will auto do that based on mobile screen
+
+### Loading
+
+as default loading component we can use `ActivityIndicator` can also set colors and all
+
+
+### Error 
+
+To display error message we can display in as usuall way also we can use packages like: [React Native Flash Message](https://www.npmjs.com/package/react-native-flash-message)
