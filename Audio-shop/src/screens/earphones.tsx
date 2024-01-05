@@ -26,7 +26,7 @@ export const EarphonesScreen = ({ navigation }: { navigation: any }) => {
                     {
                         earphones.map(earphone => {
                             return (
-                                <View key={earphone.name} style={{ marginBottom: 60 }}>
+                                <View key={earphone.id} style={{ marginBottom: 60 }}>
                                     <View
                                         style={{
                                             backgroundColor: colors.grey,
@@ -36,7 +36,7 @@ export const EarphonesScreen = ({ navigation }: { navigation: any }) => {
                                             paddingVertical: spacing[5],
                                         }}
                                     >
-                                        <Image source={{ uri: earphone.images[0].image_url }} />
+                                        <Image style={{ height: 172, width: 180 }} resizeMode='contain' source={{ uri: earphone.featured_image }} />
                                     </View>
 
                                     <View style={{ marginTop: spacing[5] }}>

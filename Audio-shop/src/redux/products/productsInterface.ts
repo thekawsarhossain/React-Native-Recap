@@ -32,6 +32,7 @@ export interface Product {
     created_at: Date;
     updated_at: Date;
     is_featured?: any;
+    featured_image: string;
     images: ProductImage[];
     included: IncludedProduct[]
 }

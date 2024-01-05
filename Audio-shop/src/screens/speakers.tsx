@@ -26,7 +26,7 @@ export const SpeakersScreen = ({ navigation }: { navigation: any }) => {
           {
             speakers.map(speaker => {
               return (
-                <View key={speaker.name} style={{ marginBottom: 60 }}>
+                <View key={speaker.id} style={{ marginBottom: 60 }}>
                   <View
                     style={{
                       backgroundColor: colors.grey,
@@ -36,7 +36,7 @@ export const SpeakersScreen = ({ navigation }: { navigation: any }) => {
                       paddingVertical: spacing[5],
                     }}
                   >
-                    <Image source={{ uri: speaker.images[0]?.image_url }} />
+                    <Image style={{ height: 172, width: 180 }} resizeMode='contain' source={{ uri: speaker.featured_image }} />
                   </View>
 
                   <View style={{ marginTop: spacing[5] }}>

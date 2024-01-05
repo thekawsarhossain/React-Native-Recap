@@ -6,7 +6,7 @@ export const selectFeaturedProducts = (state: RootState): Product[] => {
     return state.products?.products?.filter((product) => product.is_featured)
 };
 
-export const seflectHeadphones = (state: RootState): Product[] =>
+export const selectHeadphones = (state: RootState): Product[] =>
     state.products?.products?.filter((product) => product.category === 'headphones');
 
 export const selectSpeakers = (state: RootState): Product[] =>

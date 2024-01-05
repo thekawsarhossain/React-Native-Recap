@@ -2,7 +2,7 @@ import React from 'react'
 import { Text } from '../components/Text/Text'
 import { View, ScrollView, Image } from 'react-native'
 import { useSelector } from 'react-redux'
-import { seflectHeadphones } from '../redux/products/selectors'
+import { selectHeadphones } from '../redux/products/selectors'
 import Footer from '../components/CategoryFooter'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { BannerTitle } from '../components/BannerTitle'
@@ -13,10 +13,12 @@ import { Button } from '../components/Button'
 
 export const HeadphonesScreen = ({ navigation }: { navigation: any }) => {
 
-    const headphones = useSelector(seflectHeadphones)
+    const headphones = useSelector(selectHeadphones)
     const onPressProduct = (id: number) => {
         navigation.navigate('ProductDetails', { id: id })
     }
+
+    console.log("headphones -------> ", headphones)
 
     return (
         <SafeAreaView>
@@ -27,7 +29,7 @@ export const HeadphonesScreen = ({ navigation }: { navigation: any }) => {
                     {
                         headphones.map(headphone => {
                             return (
-                                <View key={headphone.name} style={{ marginBottom: 60 }}>
+                                <View key={headphone.id} style={{ marginBottom: 60 }}>
                                     <View
                                         style={{
                                             backgroundColor: colors.grey,
@@ -37,7 +39,7 @@ export const HeadphonesScreen = ({ navigation }: { navigation: any }) => {
                                             paddingVertical: spacing[5],
                                         }}
                                     >
-                                        <Image source={{ uri: headphone.images[0].image_url }} />
+                                        <Image style={{ height: 172, width: 180 }} resizeMode='contain' source={{ uri: headphone.featured_image }} />
                                     </View>
 
                                     <View style={{ marginTop: spacing[5] }}>
