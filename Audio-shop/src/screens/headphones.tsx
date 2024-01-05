@@ -9,16 +9,15 @@ import { BannerTitle } from '../components/BannerTitle'
 import CategoryTitle from '../components/CategoryTitle'
 import { colors, spacing } from '../theme'
 import { Button } from '../components/Button'
+import { NavigationProps } from '../Types/NavigationTypes'
 
 
-export const HeadphonesScreen = ({ navigation }: { navigation: any }) => {
+export const HeadphonesScreen: React.FC<NavigationProps<'Headphones'>> = ({ navigation }) => {
 
     const headphones = useSelector(selectHeadphones)
     const onPressProduct = (id: number) => {
         navigation.navigate('ProductDetails', { id: id })
     }
-
-    console.log("headphones -------> ", headphones)
 
     return (
         <SafeAreaView>
@@ -27,9 +26,9 @@ export const HeadphonesScreen = ({ navigation }: { navigation: any }) => {
                 <CategoryTitle title="headphones" />
                 <View style={{ margin: spacing[5] }}>
                     {
-                        headphones.map(headphone => {
+                        headphones.map((headphone, index) => {
                             return (
-                                <View key={headphone.id} style={{ marginBottom: 60 }}>
+                                <View key={`headphones__${headphone.id}__${index}`} style={{ marginBottom: 60 }}>
                                     <View
                                         style={{
                                             backgroundColor: colors.grey,

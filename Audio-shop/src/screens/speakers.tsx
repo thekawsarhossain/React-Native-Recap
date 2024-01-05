@@ -9,9 +9,10 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { Text } from '../components/Text/Text'
 import { BannerTitle } from '../components/BannerTitle'
 import { Button } from '../components/Button'
+import { NavigationProps } from '../Types/NavigationTypes'
 
 
-export const SpeakersScreen = ({ navigation }: { navigation: any }) => {
+export const SpeakersScreen: React.FC<NavigationProps<'Speakers'>> = ({ navigation }) => {
   const speakers = useSelector(selectSpeakers)
   const onPressProduct = (id: number) => {
     navigation.navigate('ProductDetails', { id: id })
@@ -24,9 +25,9 @@ export const SpeakersScreen = ({ navigation }: { navigation: any }) => {
         <CategoryTitle title="speakers" />
         <View style={{ margin: spacing[5] }}>
           {
-            speakers.map(speaker => {
+            speakers.map((speaker, index) => {
               return (
-                <View key={speaker.id} style={{ marginBottom: 60 }}>
+                <View key={`speaker__${speaker.id}__${index}`} style={{ marginBottom: 60 }}>
                   <View
                     style={{
                       backgroundColor: colors.grey,

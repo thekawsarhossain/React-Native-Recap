@@ -33,7 +33,7 @@ const HeadphonesStackScreens = () => {
     return (
         <HeadphonesStack.Navigator screenOptions={{ headerShown: false }}>
             <HeadphonesStack.Screen name="Headphones" component={HeadphonesScreen} />
-            <HeadphonesStack.Screen name="Details" component={ProductDetailsScreen} />
+            <HeadphonesStack.Screen name="ProductDetails" component={ProductDetailsScreen} />
         </HeadphonesStack.Navigator>
     )
 };
@@ -43,7 +43,7 @@ const EarphonesStackScreens = () => {
     return (
         <EarphonesStack.Navigator screenOptions={{ headerShown: false }}>
             <EarphonesStack.Screen name="Earphones" component={EarphonesScreen} />
-            <EarphonesStack.Screen name="Details" component={ProductDetailsScreen} />
+            <EarphonesStack.Screen name="ProductDetails" component={ProductDetailsScreen} />
         </EarphonesStack.Navigator>
     )
 };
@@ -53,7 +53,7 @@ const SpeakersStackScreens = () => {
     return (
         <SpeakersStack.Navigator screenOptions={{ headerShown: false }}>
             <SpeakersStack.Screen name="Speakers" component={SpeakersScreen} />
-            <SpeakersStack.Screen name="Details" component={ProductDetailsScreen} />
+            <SpeakersStack.Screen name="ProductDetails" component={ProductDetailsScreen} />
         </SpeakersStack.Navigator>
     )
 };

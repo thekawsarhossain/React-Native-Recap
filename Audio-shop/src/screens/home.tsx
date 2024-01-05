@@ -10,9 +10,9 @@ import { colors, spacing } from '../theme';
 import { AntDesign } from "@expo/vector-icons"
 import { selectFeaturedProducts, selectStatus } from '../redux/products/selectors';
 import { Button } from '../components/Button';
-import { useNavigation } from '@react-navigation/native';
+import { NavigationProps } from '../Types/NavigationTypes';
 
-export const HomeScreen = ({ navigation }: { navigation: any }) => {
+export const HomeScreen: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
     const { width: windowWidth } = useWindowDimensions();
     const dispatch = useDispatch<AppDispatch>();
     const status = useSelector(selectStatus);
@@ -76,7 +76,13 @@ export const HomeScreen = ({ navigation }: { navigation: any }) => {
                 {/* Featured */}
                 <View style={{ paddingVertical: spacing[8], paddingHorizontal: spacing[4] }}>
                     {
-                        featuredProducts.map((product) => <FeaturedProductBox key={product.id} name={product.name} category={product.category} image={product.images[0].image_url} />)
+                        featuredProducts.map((product, index) => <FeaturedProductBox
+                            key={`featured__${product.id}__${index}`}
+                            name={product.name}
+                            category={product.category}
+                            image={product.images[0].image_url}
+                            onPress={() => navigation.navigate('ProductDetails', { id: product.id })}
+                        />)
                     }
                 </View>
 
@@ -102,9 +108,8 @@ const CategoryBox = ({ title, image, onPress }: { title: string, image: string, 
     )
 }
 
-const FeaturedProductBox = ({ name, category, image }: { name: string, category: string, image: string }) => {
+const FeaturedProductBox = ({ name, category, image, onPress }: { name: string, category: string, image: string, onPress: () => void }) => {
     const { width: windowWidth } = useWindowDimensions();
-    const navigation = useNavigation();
 
     return (
         <View style={styles.featuredProductBox}>
@@ -118,7 +123,7 @@ const FeaturedProductBox = ({ name, category, image }: { name: string, category:
                 <Text preset="h3" centered uppercase white>{category}</Text>
                 <Text centered white style={{ width: 250, marginTop: spacing[4] }}>Upgrade to premium devices that are phenomenally built to deliver truly remarkable sound</Text>
 
-                <Button title='See Product' style={{ backgroundColor: colors.black, alignSelf: "center", marginTop: spacing[5] }} onPress={() => navigation.navigate("Details")} />
+                <Button title='See Product' style={{ backgroundColor: colors.black, alignSelf: "center", marginTop: spacing[5] }} onPress={onPress} />
 
             </View>
         </View>

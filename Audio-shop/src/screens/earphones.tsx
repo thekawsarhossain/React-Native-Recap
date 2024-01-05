@@ -9,8 +9,9 @@ import { colors, spacing } from '../theme'
 import { Button } from '../components/Button'
 import Footer from '../components/CategoryFooter'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { NavigationProps } from '../Types/NavigationTypes'
 
-export const EarphonesScreen = ({ navigation }: { navigation: any }) => {
+export const EarphonesScreen: React.FC<NavigationProps<'Earphones'>> = ({ navigation }) => {
 
     const earphones = useSelector(selectEarphones)
     const onPressProduct = (id: number) => {
@@ -24,9 +25,9 @@ export const EarphonesScreen = ({ navigation }: { navigation: any }) => {
                 <CategoryTitle title="earphones" />
                 <View style={{ margin: spacing[5] }}>
                     {
-                        earphones.map(earphone => {
+                        earphones.map((earphone, index) => {
                             return (
-                                <View key={earphone.id} style={{ marginBottom: 60 }}>
+                                <View key={`earphones__${earphone.id}__${index}`} style={{ marginBottom: 60 }}>
                                     <View
                                         style={{
                                             backgroundColor: colors.grey,
