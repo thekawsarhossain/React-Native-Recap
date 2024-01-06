@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { cartItem } from "./cartInterface";
 
-const initialState: any[] = [];
+const initialState: cartItem[] = [];
 
 export const cartSlice = createSlice({
     name: "cart",

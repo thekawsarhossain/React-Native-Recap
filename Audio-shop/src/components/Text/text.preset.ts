@@ -50,5 +50,9 @@ export const presets: { [key: string]: Partial<Style> } = {
     title: {
         ...BOLD,
         fontSize: 14
+    },
+    small: {
+        ...BOLD,
+        fontSize: 12
     }
 }

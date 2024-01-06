@@ -1,6 +1,4 @@
-export interface CartState {
-    cart: [];
-}
+import { CartState } from "./cartInterface";
 
 export const selectCartLength = (state: CartState) => state.cart.length;
 

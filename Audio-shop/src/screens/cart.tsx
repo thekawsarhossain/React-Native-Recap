@@ -27,6 +27,11 @@ export const CartScreen: React.FC<NavigationProps<'Cart'>> = ({ navigation }) =>
                     loop={false}
                     source={require('../../assets/images/empty-cart.json')}
                 />
+                <Button
+                    title="Explore Products"
+                    style={{ width: '80%', alignSelf: "center" }}
+                    onPress={() => { navigation.navigate('Home') }}
+                />
             </View>
         )
     }
