@@ -11,12 +11,12 @@ interface Props {
 
 export default function CounterButton({ style, setAmount, amount }: Props) {
     const onIncrement = () => {
-        setAmount(prev => prev + 1)
-
+        setAmount(amount + 1)
     }
+
     const onDecrement = () => {
         if (amount > 0) {
-            setAmount(prev => prev - 1)
+            setAmount(amount - 1)
         }
     }
     return (
