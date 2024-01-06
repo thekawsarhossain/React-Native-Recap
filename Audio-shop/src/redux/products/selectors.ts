@@ -2,9 +2,7 @@ import { Product, RootState } from "./productsInterface";
 
 export const selectStatus = (state: RootState): string => state.products.status;
 
-export const selectFeaturedProducts = (state: RootState): Product[] => {
-    return state.products?.products?.filter((product) => product.is_featured)
-};
+export const selectFeaturedProducts = (state: RootState): Product[] => state.products?.products?.filter((product) => product.is_featured === 1);
 
 export const selectHeadphones = (state: RootState): Product[] =>
     state.products?.products?.filter((product) => product.category === 'headphones');
