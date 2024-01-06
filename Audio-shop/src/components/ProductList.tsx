@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from '../components/Text/Text'
-import { View, ScrollView, Image } from 'react-native'
+import { View, ScrollView, Image, StyleSheet } from 'react-native'
 import { BannerTitle } from '../components/BannerTitle'
 import CategoryTitle from '../components/CategoryTitle'
 import { colors, spacing } from '../theme'
@@ -9,6 +9,7 @@ import Footer from '../components/CategoryFooter'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
 import { Product } from '../redux/products/productsInterface'
+import { NavigationProp } from '@react-navigation/native';
 
 interface Props {
     title: string;
@@ -17,7 +18,10 @@ interface Props {
 
 export const ProductList = ({ title, products }: Props) => {
 
-    const navigation = useNavigation();
+    const navigation = useNavigation<NavigationProp<{
+        ProductDetails: { id: number };
+    }>>();
+
     const onPressProduct = (id: number) => {
         navigation.navigate('ProductDetails', { id: id })
     }
@@ -33,13 +37,7 @@ export const ProductList = ({ title, products }: Props) => {
                             return (
                                 <View key={`${title}__${product.id}__${index}`} style={{ marginBottom: 60 }}>
                                     <View
-                                        style={{
-                                            backgroundColor: colors.grey,
-                                            borderRadius: 16,
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            paddingVertical: spacing[5],
-                                        }}
+                                        style={styles.productImageContainer}
                                     >
                                         <Image style={{ height: 172, width: 180 }} resizeMode='contain' source={{ uri: product.featured_image }} />
                                     </View>
@@ -78,3 +76,13 @@ export const ProductList = ({ title, products }: Props) => {
         </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    productImageContainer: {
+        backgroundColor: colors.grey,
+        borderRadius: 16,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: spacing[5],
+    }
+})

@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { Text } from '../components/Text/Text'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { View, ScrollView, Pressable, Image } from 'react-native'
+import { View, ScrollView, Pressable, Image, StyleSheet } from 'react-native'
 import { Ionicons } from "@expo/vector-icons";
 import { colors, spacing } from '../theme';
 import { useSelector } from 'react-redux';
 import { selectProductById } from "../redux/products/selectors"
 import { BannerTitle } from '../components/BannerTitle';
 import { NavigationProps } from '../Types/NavigationTypes';
-
 
 export const ProductDetailsScreen: React.FC<NavigationProps<'ProductDetails'>> = ({ navigation, route }: { navigation: any, route: any }) => {
   const id = route.params.id
@@ -26,7 +25,7 @@ export const ProductDetailsScreen: React.FC<NavigationProps<'ProductDetails'>> =
         </Pressable>
 
         <View style={{ margin: spacing[5] }}>
-          <View style={{ backgroundColor: colors.grey, borderRadius: 16, alignItems: 'center', justifyContent: 'center', paddingVertical: spacing[8] }}>
+          <View style={styles.productImageConatiner}>
             <Image style={{ height: 200, width: 300 }} resizeMode='contain' source={{ uri: featured_image }} />
           </View>
 
@@ -49,7 +48,7 @@ export const ProductDetailsScreen: React.FC<NavigationProps<'ProductDetails'>> =
           <View style={{ marginVertical: spacing[5] }}>
             <Text preset="h4">IN THE BOX</Text>
             {included?.map(item =>
-              <View key={`product_details_${item.name}__${id}`} style={{ flexDirection: 'row', alignItems: 'center', marginVertical: spacing[3] }}>
+              <View key={`product_details_${item.name}__${id}`} style={styles.productDetailsContainer}>
                 <Text preset="h6" textColor={colors.primary}>{item.amount}x</Text>
                 <Text textColor="#7d7d7d" style={{ marginLeft: spacing[3] }}>{item.name}</Text>
               </View>
@@ -70,3 +69,18 @@ export const ProductDetailsScreen: React.FC<NavigationProps<'ProductDetails'>> =
     </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  productImageConatiner: {
+    backgroundColor: colors.grey,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: spacing[8]
+  },
+  productDetailsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: spacing[3]
+  }
+})

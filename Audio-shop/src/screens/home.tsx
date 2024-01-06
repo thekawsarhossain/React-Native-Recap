@@ -80,7 +80,7 @@ export const HomeScreen: React.FC<NavigationProps<'Home'>> = ({ navigation }) =>
                             key={`featured__${product.id}__${index}`}
                             name={product.name}
                             category={product.category}
-                            image={product.images[0].image_url}
+                            image={product.featured_image}
                             onPress={() => navigation.navigate('ProductDetails', { id: product.id })}
                         />)
                     }
