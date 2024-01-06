@@ -31,7 +31,7 @@ export default function App() {
       <PersistGate loading={null} persistor={persistor}>
         <SafeAreaProvider>
           <Navigation />
-          <FlashMessage position="top" floating statusBarHeight={30} />
+          <FlashMessage position="top" floating statusBarHeight={50} />
         </SafeAreaProvider>
       </PersistGate>
     </Provider>
