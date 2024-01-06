@@ -81,7 +81,10 @@ export const HomeScreen: React.FC<NavigationProps<'Home'>> = ({ navigation }) =>
                             name={product.name}
                             category={product.category}
                             image={product.featured_image}
-                            onPress={() => navigation.navigate('ProductDetails', { id: product.id })}
+                            onPress={() => {
+                                navigation.navigate(`Headphones`);
+                                navigation.navigate('ProductDetails', { id: product.id })
+                            }}
                         />)
                     }
                 </View>
