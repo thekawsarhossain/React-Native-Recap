@@ -22,11 +22,15 @@ and this is how we will get native apps
 
 - View
 - Text
-- Image
+- Image, ImageBackground
 - FlatList
 - ScrollView
 - Button
 - TextInput
+- Modal
+- Pressable
+- StatusBar
+- Alert
 
 ### Other Components
 
