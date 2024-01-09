@@ -23,18 +23,19 @@ and this is how we will get native apps
 - View
 - Text
 - Image, ImageBackground
-- FlatList
+- FlatList, SectionList
 - ScrollView
 - Button
-- TextInput
+- TextInput, Switch
 - Modal
 - Pressable
-- StatusBar
 - Alert
 
 ### Other Components
 
 - SafeAreaView
+- StatusBar
+- KeyboardAvoidingView
 
 ### Styles
 
@@ -42,7 +43,7 @@ and this is how we will get native apps
 - There is no inheritance in React-native style means: Let's say I've one `View` component inside I've `Text` Now if I try to apply the style in the `View` component for example: `backgroundColor: "Black", color: "white"` then the `Text` component will not inherit the color from `View` and will display text in black | Although React Native style inheritance capabilities are limited compared to CSS it still supports styles inheritance within `Text` subtrees
 - The best way to add platform-specific styles
 - <img width="531" alt="image" src="https://github.com/thekawsarhossain/React-Native-Recap/assets/86672839/5e0e43f1-38ef-4cc6-9458-5b29e9af389b">
-- Can also use `Platform.OS` this is better for small sort platforms-specific styles
+- Can also use `Platform.OS` this is better for small sort platforms-specific styles: `paddingTop: Platform.OS === "android" ? 25 : 0`
     
 
 ### Platforms-specific codes 
